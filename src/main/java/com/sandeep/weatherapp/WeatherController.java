@@ -7,14 +7,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/weather")
 public class WeatherController {
-
-
-
-
-@Value("${OPENWEATHERMAP_API_KEY}")
-     String API_KEY = System.getenv("OPENWEATHERMAP_API_KEY");
-
-
+    @Value("${OPENWEATHERMAP_API_KEY}")
+    String API_KEY = System.getenv("OPENWEATHERMAP_API_KEY");
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{city}")
     public ResponseEntity<WeatherData> getWeather(@PathVariable String city) {
